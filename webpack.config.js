@@ -13,13 +13,16 @@ const cssLoaders = [
 
 module.exports = {
   mode: isProduction ? "production" : "development",
+
   entry: "./src/index.tsx",
+
   output: {
     path: path.join(__dirname, "dist"),
     filename: "[name].js?[contenthash]",
     chunkFilename: "[id].js?[contenthash]",
     publicPath: process.env.CDN_URL || "/",
   },
+
   module: {
     rules: [
       {
@@ -54,18 +57,22 @@ module.exports = {
       },
     ],
   },
+
   plugins: [
     new HtmlWebpackPlugin(),
     !isProduction && new ReactRefreshWebpackPlugin(),
     isProduction &&
       new MiniCssExtractPlugin({ filename: "[name].css?[contenthash]" }),
   ].filter(Boolean),
+
   devtool: !isProduction && "eval",
+
   devServer: {
-    static: { directory: path.join(__dirname, "public") },
-    historyApiFallback: true,
     hot: true,
+    historyApiFallback: true,
+    static: { directory: path.join(__dirname, "public") },
   },
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
