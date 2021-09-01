@@ -1,5 +1,5 @@
 {
-  "name": "@thytanium/react-typescript-starter",
+  "name": "@thytanium/ts-react-starter",
   "version": "1.0.0",
   "description": "Starter kit for React projects powered by TypeScript, Webpack, Babel, support for SASS, LESS, Tailwindcss",
   "main": "dist/main.js",
